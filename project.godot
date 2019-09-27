@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="GlitchPlatformer"
-run/main_scene="res://Scenes/Root.tscn"
 config/icon="res://icon.png"
 
 [input]
