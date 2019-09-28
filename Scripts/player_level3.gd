@@ -55,6 +55,9 @@ static func process(player, delta):
 	var level = player.get_parent()
 	level.get_node("Fire").position.y -= 100 * delta
 	pass
+func process(delta):
+	rotation += 1 * delta
+	
 
 # For something that happens on an input event
 static func input(player, event):
