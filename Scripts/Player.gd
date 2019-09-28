@@ -9,7 +9,7 @@ var up = Vector2(0, -1)
 
 var ACCEL = 4
 var DEACCEL = 8
-var GRAVITY = 30
+var GRAVITY = 1800
 var JUMP_MULT = 2.5
 var LOW_JUMP_MULT = 2
 
