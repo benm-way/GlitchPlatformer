@@ -19,19 +19,19 @@ extents = Vector2( 50, 80 )
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": false,
+"loop": true,
 "name": "Attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ) ],
-"loop": true,
+"loop": false,
 "name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Walking",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
@@ -49,9 +49,10 @@ position = Vector2( -10.7773, 6.10352e-005 )
 shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -37.1217, 5.98737 )
+position = Vector2( -50.9464, -4.78986 )
 frames = SubResource( 2 )
-animation = "Jump"
+animation = "Idle"
+playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
