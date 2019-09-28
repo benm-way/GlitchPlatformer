@@ -53,8 +53,7 @@ static func move(mover, delta):
 # For something called every frame
 static func process(player, delta):
 	var level = player.get_parent()
-	level.get_node("Platforms").position.y += 100 * delta
-	level.get_node("WinBox").position.y += 100 * delta
+	level.get_node("Fire").position.y -= 100 * delta
 	pass
 func process(delta):
 	rotation += 1 * delta

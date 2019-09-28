@@ -83,7 +83,6 @@ scale = Vector2( 17.1976, 2.66022 )
 position = Vector2( -97.6156, -119.163 )
 
 [node name="Fire" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="temp_fire" type="Sprite" parent="Fire"]
 position = Vector2( -937.85, 414.4 )
@@ -145,7 +144,7 @@ position = Vector2( 1210.1, 458.1 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="Fire"]
 position = Vector2( 206.968, 430.985 )
 rotation = -1.57079
 scale = Vector2( 2, 2 )
