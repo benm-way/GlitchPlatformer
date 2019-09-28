@@ -7,17 +7,22 @@ static func move(mover, delta):
 	
 	if Input.is_key_pressed(KEY_D):
 		dir.x += 1
+	if Input.is_key_pressed(KEY_A):
+		dir.x -= 1
+	if Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
+		mover.vel.y = -2000
+	if Input.is_key_pressed(KEY_SHIFT):
+			mover.max_speed = 800
+
+	
+	if Input.is_key_pressed(KEY_D):
 		mover.get_node("AnimatedSprite").flip_h = false
 		mover.get_node("AnimatedSprite").play("Walking")
 	elif Input.is_key_pressed(KEY_A):
-		dir.x -= 1
 		mover.get_node("AnimatedSprite").flip_h = true
 		mover.get_node("AnimatedSprite").play("Walking")
 	elif Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
-		mover.vel.y = -2000
 		mover.get_node("AnimatedSprite").play("Jump")
-	elif Input.is_key_pressed(KEY_SHIFT):
-			mover.max_speed = 800
 	else:
 		mover.get_node("AnimatedSprite").play("Idle")
 	dir = dir.normalized()
