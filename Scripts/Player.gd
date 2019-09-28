@@ -16,11 +16,12 @@ func _ready():
 	script = load("res://Scripts/player_level0.gd")
 
 func _process(delta):
+	script.process(delta)
 	script.move(self, delta)
 	pass
 
 func _input(event):
-	script.jump(self, event)
+	script.input(event)
 	pass
 
 
