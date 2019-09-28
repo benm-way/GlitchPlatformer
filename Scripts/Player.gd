@@ -1,7 +1,6 @@
 extends Node2D
 
 var script
-var level
 
 var vel = Vector2(0,0)
 var max_speed = 200
@@ -24,6 +23,8 @@ func _process(delta):
 
 func _input(event):
 	script.input(self, event)
+	if event is InputEventKey and event.scancode == KEY_F and event.is_pressed() and !event.is_echo():
+		transition(self)
 	pass
 
 
