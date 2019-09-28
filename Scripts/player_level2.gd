@@ -1,3 +1,4 @@
+
 extends Node
 
 static func move(mover, delta):
@@ -12,7 +13,10 @@ static func move(mover, delta):
 	if Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
 		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_SHIFT):
-		mover.max_speed = 800
+		for i in range(1,20):
+			mover.max_speed = mover.max_speed*2
+			#yield(0.5)
+	
 	dir = dir.normalized()
 	
 	var hvel = mover.vel
