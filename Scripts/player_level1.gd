@@ -4,7 +4,7 @@ static func move(mover, delta):
 	# Anything and everything related to movement goes in here
 	var dir = Vector2(0,0)
 	mover.max_speed = 200
-	
+	#shuffled controls
 	if Input.is_key_pressed(KEY_SPACE):
 		dir.x += 1
 	if Input.is_key_pressed(KEY_SHIFT):
