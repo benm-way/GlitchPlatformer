@@ -1,4 +1,4 @@
-extends Node
+extends KinematicBody2D
 
 static func move(mover, delta):
 	# Anything and everything related to movement goes in here
@@ -13,7 +13,18 @@ static func move(mover, delta):
 		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_SHIFT):
 			mover.max_speed = 800
+
 	
+	if Input.is_key_pressed(KEY_D):
+		mover.get_node("AnimatedSprite").flip_h = false
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_A):
+		mover.get_node("AnimatedSprite").flip_h = true
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
+		mover.get_node("AnimatedSprite").play("Jump")
+	else:
+		mover.get_node("AnimatedSprite").play("Idle")
 	dir = dir.normalized()
 	
 	var hvel = mover.vel
@@ -43,12 +54,12 @@ static func move(mover, delta):
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
 	
 	if mover.get_slide_count() > 0:
-		mover.get_node("Sprite").rotation = 0
+		mover.get_node("AnimatedSprite").rotation = 0
 		var normal = mover.get_slide_collision(0).normal
 		var up = mover.up
 		var angle = acos(normal.dot(up)/(normal.length() * up.length()))
 		if rad2deg(angle) < 90:
-			mover.get_node("Sprite").rotate(angle)
+			mover.get_node("AnimatedSprite").rotate(angle)
 		
 # For something called every frame
 static func process(player, delta):

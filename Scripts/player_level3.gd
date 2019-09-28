@@ -51,9 +51,10 @@ static func move(mover, delta):
 			mover.get_node("Sprite").rotate(angle)
 		
 # For something called every frame
-func process(delta):
-	var rotation = 0
-	rotation += 1 * delta
+static func process(player, delta):
+	var level = player.get_parent()
+	level.get_node("Platforms").position.y += 100 * delta
+	level.get_node("WinBox").position.y += 100 * delta
 	pass
 
 # For something that happens on an input event

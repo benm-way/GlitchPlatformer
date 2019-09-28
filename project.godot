@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 Startup="*res://Startup.gd"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "codeandweb.texturepacker" )
+
 [input]
 
 ui_left={
