@@ -33,14 +33,21 @@ static func move(mover, delta):
 	mover.vel.x = hvel.x
 	
 	# Jumping
-	if (mover.vel.y < 0):
-		mover.vel.y += mover.GRAVITY * mover.JUMP_MULT
-	elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_SPACE)):
-		mover.vel.y += mover.GRAVITY * mover.LOW_JUMP_MULT
-	mover.vel.y += mover.GRAVITY
+	if not mover.is_on_floor():
+		if (mover.vel.y < 0):
+			mover.vel.y += mover.GRAVITY * mover.JUMP_MULT
+		elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_SPACE)):
+			mover.vel.y += mover.GRAVITY * mover.LOW_JUMP_MULT
+		mover.vel.y += mover.GRAVITY
 	
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
-
+	if mover.get_slide_count() > 0:
+		mover.get_node("Sprite").rotation = 0
+		var normal = mover.get_slide_collision(0).normal
+		var up = mover.up
+		var angle = acos(normal.dot(up)/(normal.length() * up.length()))
+		mover.get_node("Sprite").rotate(angle)
+		
 # For something called every frame
 static func process(player, delta):
 	pass
