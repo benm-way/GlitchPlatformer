@@ -5,6 +5,7 @@ var level
 
 var vel = Vector2(0,0)
 var max_speed = 200
+var up = Vector2(0, -1)
 
 var ACCEL = 4
 var DEACCEL = 8
