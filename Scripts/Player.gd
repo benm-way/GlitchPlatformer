@@ -28,3 +28,8 @@ func _input(event):
 
 func load_script(level_num):
 	script = load("res://Scripts/player_level" + level_num + ".gd")
+	
+func transition(area):
+	if !(area is StaticBody2D):
+		var level_num = int(area.get_parent().name[-1]) + 1
+		get_tree().change_scene("res://Scenes/Level" + str(level_num) + ".tscn")

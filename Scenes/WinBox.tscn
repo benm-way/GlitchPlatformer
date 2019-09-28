@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="WinBox" type="Area2D"]
+editor/display_folded = true
+position = Vector2( 1430.7, 79.8001 )
+scale = Vector2( 5.41821, -28.7684 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
