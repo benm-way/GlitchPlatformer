@@ -52,22 +52,10 @@ static func move(mover, delta):
 		
 # For something called every frame
 static func process(player, delta):
-    rotation_dir = 0
-    velocity = Vector2()
-    if Input.is_action_pressed('right'):
-        rotation_dir += 1
-    if Input.is_action_pressed('left'):
-        rotation_dir -= 1
-    if Input.is_action_pressed('down'):
-        velocity = Vector2(-speed, 0).rotated(rotation)
-    if Input.is_action_pressed('up'):
-        velocity = Vector2(speed, 0).rotated(rotation)
-
-func _physics_process(delta):
-    get_input()
-    rotation += rotation_dir * rotation_speed * delta
-    velocity = move_and_slide(velocity)
-
+	var level = player.get_parent()
+	level.get_node("Platforms").position.y += 100 * delta
+	level.get_node("WinBox").position.y += 100 * delta
+	pass
 
 # For something that happens on an input event
 static func input(player, event):
