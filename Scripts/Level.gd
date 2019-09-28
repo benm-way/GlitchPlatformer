@@ -5,6 +5,3 @@ func _ready():
 	$Player.load_script(self.name[-1])
 	$WinBox.connect("body_entered", $Player, "transition")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Startup="*res://Scripts/Startup.gd"
+Startup="*res://Startup.gd"
 
 [input]
 
