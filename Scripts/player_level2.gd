@@ -3,6 +3,7 @@ extends Node
 static func move(mover, delta):
 	# Anything and everything related to movement goes in here
 	var dir = Vector2(0,0)
+	mover.max_speed = 200
 	
 	if Input.is_key_pressed(KEY_D):
 		dir.x += 1
@@ -10,7 +11,8 @@ static func move(mover, delta):
 		dir.x -= 1
 	if Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
 		mover.vel.y = -2000
-	
+	if Input.is_key_pressed(KEY_SHIFT):
+		mover.max_speed = 800
 	dir = dir.normalized()
 	
 	var hvel = mover.vel
