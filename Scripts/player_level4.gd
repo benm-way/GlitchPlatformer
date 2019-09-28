@@ -1,4 +1,4 @@
-extends Node
+extends KinematicBody2D
 
 static func move(mover, delta):
 	# Anything and everything related to movement goes in here
@@ -13,7 +13,18 @@ static func move(mover, delta):
 		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_SHIFT):
 			mover.max_speed = 800
-	
+
+	#animation
+	if Input.is_key_pressed(KEY_D):
+		mover.get_node("AnimatedSprite").flip_h = false
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_A):
+		mover.get_node("AnimatedSprite").flip_h = true
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
+		mover.get_node("AnimatedSprite").play("Jump")
+	else:
+		mover.get_node("AnimatedSprite").play("Idle")
 	dir = dir.normalized()
 	
 	var hvel = mover.vel
@@ -52,13 +63,7 @@ static func move(mover, delta):
 		
 # For something called every frame
 static func process(player, delta):
-	var level = player.get_parent()
-	level.get_node("Platforms").position.y += 100 * delta
-	level.get_node("WinBox").position.y += 100 * delta
 	pass
-func process(delta):
-	rotation += 1 * delta
-	
 
 # For something that happens on an input event
 static func input(player, event):
