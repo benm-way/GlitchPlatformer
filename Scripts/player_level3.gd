@@ -52,11 +52,12 @@ static func move(mover, delta):
 		
 # For something called every frame
 static func process(player, delta):
+	var level = player.get_parent()
+	level.get_node("Platforms").position.y += 100 * delta
+	level.get_node("WinBox").position.y += 100 * delta
 	pass
 
 # For something that happens on an input event
 static func input(player, event):
-	var level = player.get_parent()
-	if event is InputEventKey and event.scancode == KEY_SPACE and event.is_pressed() and !event.is_echo():
-		level.position.y += 10
+	pass
 	
