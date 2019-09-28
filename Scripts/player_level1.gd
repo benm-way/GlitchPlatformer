@@ -12,7 +12,7 @@ static func move(mover, delta):
 	if Input.is_key_pressed(KEY_A) and mover.is_on_floor():
 		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_D):
-			mover.max_speed = 800
+		mover.max_speed = 800
 			
 	dir = dir.normalized()
 	
@@ -33,11 +33,12 @@ static func move(mover, delta):
 	mover.vel.x = hvel.x
 	
 	# Jumping
-	if (mover.vel.y < 0):
-		mover.vel.y += mover.GRAVITY * mover.JUMP_MULT
-	elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_A)):
-		mover.vel.y += mover.GRAVITY * mover.LOW_JUMP_MULT
-	mover.vel.y += mover.GRAVITY
+	if not mover.is_on_floor():
+		if (mover.vel.y < 0):
+			mover.vel.y += mover.GRAVITY * mover.JUMP_MULT * delta
+		elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_A)):
+			mover.vel.y += mover.GRAVITY * mover.LOW_JUMP_MULT * delta
+		mover.vel.y += mover.GRAVITY * delta
 	
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
 

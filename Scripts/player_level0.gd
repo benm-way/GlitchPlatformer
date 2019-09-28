@@ -41,6 +41,7 @@ static func move(mover, delta):
 		mover.vel.y += mover.GRAVITY * delta
 	
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
+	
 	if mover.get_slide_count() > 0:
 		mover.get_node("Sprite").rotation = 0
 		var normal = mover.get_slide_collision(0).normal
