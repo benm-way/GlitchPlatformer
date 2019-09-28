@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -22,37 +23,7 @@ shape = SubResource( 1 )
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Floor" type="Node2D" parent="Level"]
-editor/display_folded = true
-position = Vector2( 534.926, 562.161 )
-scale = Vector2( 57.3576, 2.66022 )
-
-[node name="ColorRect" type="ColorRect" parent="Level/Floor"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Floor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor/StaticBody2D"]
-shape = SubResource( 2 )
-
-[node name="Platform" type="Node2D" parent="Level"]
-editor/display_folded = true
-position = Vector2( 185.058, 398.75 )
-scale = Vector2( 8.2776, 2.66022 )
-
-[node name="ColorRect" type="ColorRect" parent="Level/Platform"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Platform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platform/StaticBody2D"]
-shape = SubResource( 2 )
+[node name="Platform" parent="Level" instance=ExtResource( 3 )]
 
 [node name="Platform2" type="Node2D" parent="Level"]
 editor/display_folded = true
@@ -71,6 +42,7 @@ margin_bottom = 10.0
 shape = SubResource( 2 )
 
 [node name="Wallramp" type="Node2D" parent="Level"]
+editor/display_folded = true
 position = Vector2( 916.917, 372.213 )
 rotation = 1.80913
 scale = Vector2( 57.3576, 2.66022 )
@@ -84,4 +56,19 @@ margin_bottom = 10.0
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Wallramp"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wallramp/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Floor" type="Node2D" parent="Level"]
+position = Vector2( 534.926, 562.161 )
+scale = Vector2( 57.3576, 2.66022 )
+
+[node name="ColorRect" type="ColorRect" parent="Level/Floor"]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor/StaticBody2D"]
 shape = SubResource( 2 )
