@@ -27,5 +27,5 @@ one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="pc_tester"]
 position = Vector2( 485.267, 265.815 )
-offset = Vector2( -50, -500 )
+offset = Vector2( -200, -300 )
 current = true
