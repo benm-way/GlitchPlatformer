@@ -5,13 +5,13 @@ static func move(mover, delta):
 	var dir = Vector2(0,0)
 	mover.max_speed = 200
 	
-	if Input.is_key_pressed(KEY_F):
+	if Input.is_key_pressed(KEY_SPACE):
 		dir.x += 1
-	if Input.is_key_pressed(KEY_S):
-		dir.x -= 1
-	if Input.is_key_pressed(KEY_ALT) and mover.is_on_floor():
-		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_SHIFT):
+		dir.x -= 1
+	if Input.is_key_pressed(KEY_A) and mover.is_on_floor():
+		mover.vel.y = -2000
+	if Input.is_key_pressed(KEY_D):
 			mover.max_speed = 800
 			
 	dir = dir.normalized()
@@ -35,7 +35,7 @@ static func move(mover, delta):
 	# Jumping
 	if (mover.vel.y < 0):
 		mover.vel.y += mover.GRAVITY * mover.JUMP_MULT
-	elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_SPACE)):
+	elif (mover.vel.y >= 0 and !Input.is_key_pressed(KEY_A)):
 		mover.vel.y += mover.GRAVITY * mover.LOW_JUMP_MULT
 	mover.vel.y += mover.GRAVITY
 	
