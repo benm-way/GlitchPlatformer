@@ -4,11 +4,11 @@ static func move(mover, delta):
 	# Anything and everything related to movement goes in here
 	var dir = Vector2(0,0)
 	
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_key_pressed(KEY_F):
 		dir.x += 1
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_key_pressed(KEY_S):
 		dir.x -= 1
-	if Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
+	if Input.is_key_pressed(KEY_ALT) and mover.is_on_floor():
 		mover.vel.y = -2000
 	
 	dir = dir.normalized()
