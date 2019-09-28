@@ -1,6 +1,7 @@
 extends Node2D
 
 var script
+var level
 
 var vel = Vector2(0,0)
 var max_speed = 200
