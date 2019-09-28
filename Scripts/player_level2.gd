@@ -16,7 +16,19 @@ static func move(mover, delta):
 		for i in range(1,20):
 			mover.max_speed = mover.max_speed*2
 			#yield(0.5)
-	
+	#animation
+	if Input.is_key_pressed(KEY_D):
+		mover.get_node("AnimatedSprite").flip_h = false
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_A):
+		mover.get_node("AnimatedSprite").flip_h = true
+		mover.get_node("AnimatedSprite").play("Walking")
+	elif Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
+		mover.get_node("AnimatedSprite").play("Jump")
+	else:
+		mover.get_node("AnimatedSprite").play("Idle")
+		
+		
 	dir = dir.normalized()
 	
 	var hvel = mover.vel

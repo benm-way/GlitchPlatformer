@@ -14,7 +14,7 @@ static func move(mover, delta):
 	if Input.is_key_pressed(KEY_SHIFT):
 			mover.max_speed = 800
 
-	
+	#animation
 	if Input.is_key_pressed(KEY_D):
 		mover.get_node("AnimatedSprite").flip_h = false
 		mover.get_node("AnimatedSprite").play("Walking")
