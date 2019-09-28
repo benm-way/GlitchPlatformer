@@ -10,7 +10,8 @@ static func move(mover, delta):
 		dir.x -= 1
 	if Input.is_key_pressed(KEY_SPACE) and mover.is_on_floor():
 		mover.vel.y = -2000
-	
+	if Input.is_key_pressed(KEY_E) and mover.is_on_floor():
+		var max_speed = 400
 	
 	dir = dir.normalized()
 	
