@@ -46,7 +46,8 @@ static func move(mover, delta):
 		var normal = mover.get_slide_collision(0).normal
 		var up = mover.up
 		var angle = acos(normal.dot(up)/(normal.length() * up.length()))
-		mover.get_node("Sprite").rotate(angle)
+		if rad2deg(angle) < 90:
+			mover.get_node("Sprite").rotate(angle)
 		
 # For something called every frame
 static func process(player, delta):
