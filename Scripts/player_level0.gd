@@ -39,10 +39,10 @@ static func move(mover, delta):
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
 
 # For something called every frame
-static func process(delta):
+static func process(player, delta):
 	pass
 
 # For something that happens on an input event
-static func input(event):
+static func input(player, event):
 	pass
 	
