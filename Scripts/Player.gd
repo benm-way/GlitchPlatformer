@@ -24,6 +24,8 @@ func _process(delta):
 
 func _input(event):
 	script.input(self, event)
+	if event is InputEventKey and event.scancode == KEY_F and event.is_pressed() and !event.is_echo():
+		transition(self)
 	pass
 
 

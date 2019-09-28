@@ -43,12 +43,12 @@ static func move(mover, delta):
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
 	
 	if mover.get_slide_count() > 0:
-		mover.get_node("Sprite").rotation = 0
+		mover.get_node("AnimatedSprite").rotation = 0
 		var normal = mover.get_slide_collision(0).normal
 		var up = mover.up
 		var angle = acos(normal.dot(up)/(normal.length() * up.length()))
 		if rad2deg(angle) < 90:
-			mover.get_node("Sprite").rotate(angle)
+			mover.get_node("AnimatedSprite").rotate(angle)
 		
 # For something called every frame
 static func process(player, delta):
