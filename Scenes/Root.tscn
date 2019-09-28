@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Arrow.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/ExitBox.gd" type="Script" id=5]
 [ext_resource path="res://Resources/MenuFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Resources/TitleFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Resources/Backgrounds/Alley.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -109,4 +110,10 @@ margin_right = 284.702
 margin_bottom = -202.959
 custom_fonts/font = ExtResource( 7 )
 text = "Glitch Platformer"
+
+[node name="Alley" type="Sprite" parent="."]
+position = Vector2( 158.995, -235.109 )
+scale = Vector2( 4.18478, 3.59805 )
+z_index = -20
+texture = ExtResource( 8 )
 [connection signal="body_entered" from="ExitBox" to="ExitBox" method="_on_ExitBox_body_entered"]
