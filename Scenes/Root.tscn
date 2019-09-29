@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Resources/spriteMaps/caveSpritesheet.png" type="Texture" id=2]
@@ -195,6 +195,23 @@ points = PoolVector2Array( 0, 0, 32, 0, 0, 32 )
 
 [sub_resource type="RectangleShape2D" id=20]
 
+[sub_resource type="Animation" id=22]
+resource_name = "Walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 10, 500.61 )
 
@@ -288,9 +305,11 @@ texture = ExtResource( 10 )
 flip_h = true
 vframes = 2
 hframes = 2
+frame = 2
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Knife guy"]
+anims/Walk = SubResource( 22 )
 
 [node name="CutsceneArea" type="Area2D" parent="."]
 editor/display_folded = true
