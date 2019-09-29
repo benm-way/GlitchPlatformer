@@ -1,7 +1,8 @@
-extends Node2D
+extends KinematicBody2D
 
 var script
 var level
+var paused = false
 
 var vel = Vector2(0,0)
 var max_speed = 200
@@ -18,16 +19,19 @@ func _ready():
 	script = load("res://Scripts/player_level0.gd")
 
 func _process(delta):
-	script.process(self, delta)
-	script.move(self, delta)
-	pass
+	if !paused:
+		script.process(self, delta)
+		script.move(self, delta)
+	else:
+		get_node("AnimatedSprite").play("Idle")
+		self.move_and_slide(Vector2(0, GRAVITY), Vector2(0,-1))
 
 func _input(event):
-	script.input(self, event)
-	if event is InputEventKey and event.scancode == KEY_F and event.is_pressed() and !event.is_echo():
-		transition(self)
-	pass
-
+	if !paused:
+		script.input(self, event)
+		if event is InputEventKey and event.scancode == KEY_F and event.is_pressed() and !event.is_echo():
+			transition(self)
+	
 
 func load_script(level_num):
 	script = load("res://Scripts/player_level" + level_num + ".gd")
