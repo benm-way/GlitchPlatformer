@@ -599,7 +599,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 908.944, 65.7127 )
+position = Vector2( -389.464, 437.128 )
 
 [node name="Platform" parent="." instance=ExtResource( 3 )]
 position = Vector2( 574.229, 520.739 )
