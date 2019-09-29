@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/TitleFont.tres" type="DynamicFont" id=1]
+
+[node name="Title" type="Label"]
+margin_left = -92.5624
+margin_top = -154.814
+margin_right = 812.438
+margin_bottom = -8.81345
+custom_fonts/font = ExtResource( 1 )
+text = "Glitch Platformer"
