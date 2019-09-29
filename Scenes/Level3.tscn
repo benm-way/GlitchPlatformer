@@ -83,6 +83,7 @@ scale = Vector2( 17.1976, 2.66022 )
 position = Vector2( -97.6156, -119.163 )
 
 [node name="Fire" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="temp_fire" type="Sprite" parent="Fire"]
 position = Vector2( -937.85, 414.4 )
