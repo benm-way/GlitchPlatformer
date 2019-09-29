@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Resources/spriteMaps/caveSpritesheet.png" type="Texture" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://Resources/BlackFade.png" type="Texture" id=9]
 [ext_resource path="res://Resources/duddeeeee.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Cutscene.gd" type="Script" id=11]
-[ext_resource path="res://Resources/WhiteFade.png" type="Texture" id=12]
+[ext_resource path="res://Resources/monofonto.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Resources/WhiteFade.png" type="Texture" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -212,7 +213,11 @@ tracks/0/keys = {
 "values": [ 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="DynamicFont" id=22]
+size = 32
+font_data = ExtResource( 12 )
+
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 500.61 )
 
 [node name="Level0" type="Node2D"]
@@ -305,11 +310,32 @@ texture = ExtResource( 10 )
 flip_h = true
 vframes = 2
 hframes = 2
-frame = 2
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Knife guy"]
 anims/Walk = SubResource( 21 )
+
+[node name="Label" type="Label" parent="Knife guy"]
+margin_left = -142.198
+margin_top = -168.865
+margin_right = 260.802
+margin_bottom = -131.865
+custom_fonts/font = SubResource( 22 )
+align = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="Knife guy"]
+visible = false
+margin_left = -579.258
+margin_top = -255.539
+margin_right = -176.258
+margin_bottom = -216.539
+custom_fonts/font = SubResource( 22 )
+text = "asdasdad"
+align = 1
+autowrap = true
+
+[node name="Tween" type="Tween" parent="Knife guy"]
 
 [node name="CutsceneArea" type="Area2D" parent="."]
 editor/display_folded = true
@@ -317,11 +343,11 @@ position = Vector2( 619.602, 127.308 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneArea"]
 position = Vector2( 197.773, -190.779 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="WhiteFade" type="Sprite" parent="."]
 position = Vector2( 1687.24, -49.9055 )
 scale = Vector2( 1.01051, 0.222 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 [connection signal="body_entered" from="ExitBox" to="ExitBox" method="_on_ExitBox_body_entered"]
 [connection signal="body_entered" from="CutsceneArea" to="Knife guy" method="_on_CutsceneArea_body_entered"]
