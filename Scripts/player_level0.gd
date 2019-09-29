@@ -23,14 +23,6 @@ static func move(mover, delta):
 		mover.get_node("AnimatedSprite").play("Walking")
 	elif Input.is_key_pressed(KEY_SPACE):
 		mover.get_node("AnimatedSprite").play("Jump")
-	#elif mover.is_on_floor():
-		#mover.get_node("AnimatedSprite").play("Jump")
-	#elif Input.is_key_pressed(KEY_SHIFT) and Input.is_key_pressed(KEY_D):
-		#mover.get_node("AnimatedSprite").flip_h = false
-		#mover.get_node("AnimatedSprite").play("Running")
-	#elif Input.is_key_pressed(KEY_SHIFT) and Input.is_key_pressed(KEY_A):
-		#mover.get_node("AnimatedSprite").flip_h = true
-		#mover.get_node("AnimatedSprite").play("Running")
 	else:
 		mover.get_node("AnimatedSprite").play("Idle")
 	dir = dir.normalized()
@@ -60,14 +52,6 @@ static func move(mover, delta):
 		mover.vel.y += mover.GRAVITY * delta
 	
 	mover.vel = mover.move_and_slide(mover.vel, Vector2(0,-1))
-	
-	if mover.get_slide_count() > 0:
-		mover.get_node("AnimatedSprite").rotation = 0
-		var normal = mover.get_slide_collision(0).normal
-		var up = mover.up
-		var angle = acos(normal.dot(up)/(normal.length() * up.length()))
-		if rad2deg(angle) < 90:
-			mover.get_node("AnimatedSprite").rotate(angle)
 		
 # For something called every frame
 static func process(player, delta):
