@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/officewindows_background.jpg-e7dc438b6a5aa7382219da990c92fa5f.stex"
+path="res://.import/officewindows_background.jpg-d1ababa9e01e3672db7c16da8e0edd12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/officewindows_background.jpg"
-dest_files=[ "res://.import/officewindows_background.jpg-e7dc438b6a5aa7382219da990c92fa5f.stex" ]
+source_file="res://Resources/Backgrounds/officewindows_background.jpg"
+dest_files=[ "res://.import/officewindows_background.jpg-d1ababa9e01e3672db7c16da8e0edd12.stex" ]
 
 [params]
 
