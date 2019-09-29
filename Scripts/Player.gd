@@ -25,6 +25,7 @@ func _process(delta):
 	else:
 		get_node("AnimatedSprite").play("Idle")
 		self.move_and_slide(Vector2(0, GRAVITY), Vector2(0,-1))
+		vel = Vector2(0,0)
 
 func _input(event):
 	if !paused:
