@@ -63,4 +63,4 @@ func _on_CutsceneArea_body_entered(body):
 func _on_VisibilityNotifier2D_screen_exited():
 	get_parent().get_node("Player").paused = false
 	if donetalking:
-		self.queue_free()
+		self.visible = false
