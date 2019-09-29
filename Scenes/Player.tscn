@@ -1,47 +1,48 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (1).png" type="Texture" id=2]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (2).png" type="Texture" id=3]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (3).png" type="Texture" id=4]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (4).png" type="Texture" id=5]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (1).png" type="Texture" id=6]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (2).png" type="Texture" id=7]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (3).png" type="Texture" id=8]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (3).png" type="Texture" id=9]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (2).png" type="Texture" id=10]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (1).png" type="Texture" id=11]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaIdle.png" type="Texture" id=12]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-0.png" type="Texture" id=13]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-1.png" type="Texture" id=14]
-[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-2.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (1).png" type="Texture" id=2]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (2).png" type="Texture" id=3]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaJump (3).png" type="Texture" id=4]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (3).png" type="Texture" id=5]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (2).png" type="Texture" id=6]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaWalking (1).png" type="Texture" id=7]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-0.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-1.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaRunning-2.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (1).png" type="Texture" id=11]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (2).png" type="Texture" id=12]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (3).png" type="Texture" id=13]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaAttack (4).png" type="Texture" id=14]
+[ext_resource path="res://Resources/Ninja Sprites/ninjaIdle.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Music and Sounds/Anton_Shilo_-_Future_Begins_Royalty_Free_Music_AudioJungle.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 81.3508, 80 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Running",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 10.0
@@ -65,3 +66,8 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
+attenuation = 0.143587
