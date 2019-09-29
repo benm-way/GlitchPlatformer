@@ -12,8 +12,8 @@ script = ExtResource( 1 )
 position = Vector2( -370.887, 80.9417 )
 
 [node name="Platform" parent="." instance=ExtResource( 3 )]
-position = Vector2( 607.712, 520.739 )
-scale = Vector2( 123.278, 2.66022 )
+position = Vector2( 574.229, 520.739 )
+scale = Vector2( 120, 2.66 )
 
 [node name="WinBox" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1655.88, 249.21 )
