@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/WinBox.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Resources/temp_smoke.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/KillZone.gd" type="Script" id=7]
 [ext_resource path="res://Resources/spriteMaps/whiteSpritesheet.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Backgrounds/cityBackground.jpg" type="Texture" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -587,4 +588,14 @@ shape = SubResource( 2 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 23 )
 cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -102.71, -477.613 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_KillZone_body_entered"]
