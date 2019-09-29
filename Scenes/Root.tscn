@@ -9,9 +9,9 @@
 [ext_resource path="res://Resources/TitleFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Resources/cave.png" type="Texture" id=8]
 [ext_resource path="res://Resources/BlackFade.png" type="Texture" id=9]
-[ext_resource path="res://Resources/duddeeeee.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Cutscene.gd" type="Script" id=11]
-[ext_resource path="res://Resources/monofonto.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Resources/monofonto.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Resources/duddeeeee.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Cutscene.gd" type="Script" id=12]
 [ext_resource path="res://Resources/WhiteFade.png" type="Texture" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -196,9 +196,12 @@ points = PoolVector2Array( 0, 0, 32, 0, 0, 32 )
 
 [sub_resource type="RectangleShape2D" id=20]
 
-[sub_resource type="Animation" id=21]
-resource_name = "Walk"
-length = 2.0
+[sub_resource type="DynamicFont" id=21]
+size = 32
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=22]
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -207,15 +210,11 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.4 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3 ]
 }
-
-[sub_resource type="DynamicFont" id=22]
-size = 32
-font_data = ExtResource( 12 )
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 500.61 )
@@ -303,39 +302,44 @@ position = Vector2( -1240.82, 167.617 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 717.388
+margin_top = 37.9596
+margin_right = 1120.39
+margin_bottom = 76.9596
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 21 )
+text = "asdasdad"
+align = 1
+autowrap = true
+
 [node name="Knife guy" type="Sprite" parent="."]
 position = Vector2( 1008.87, 149.514 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 flip_h = true
 vframes = 2
 hframes = 2
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Knife guy"]
-anims/Walk = SubResource( 21 )
+anims/Walk = SubResource( 22 )
 
 [node name="Label" type="Label" parent="Knife guy"]
 margin_left = -142.198
 margin_top = -168.865
 margin_right = 260.802
 margin_bottom = -131.865
-custom_fonts/font = SubResource( 22 )
-align = 1
-autowrap = true
-
-[node name="Label2" type="Label" parent="Knife guy"]
-visible = false
-margin_left = -579.258
-margin_top = -255.539
-margin_right = -176.258
-margin_bottom = -216.539
-custom_fonts/font = SubResource( 22 )
-text = "asdasdad"
+custom_fonts/font = SubResource( 21 )
 align = 1
 autowrap = true
 
 [node name="Tween" type="Tween" parent="Knife guy"]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Knife guy"]
+position = Vector2( -1.27466, -3.44495 )
+scale = Vector2( 2, 2 )
 
 [node name="CutsceneArea" type="Area2D" parent="."]
 editor/display_folded = true
@@ -350,4 +354,5 @@ position = Vector2( 1687.24, -49.9055 )
 scale = Vector2( 1.01051, 0.222 )
 texture = ExtResource( 13 )
 [connection signal="body_entered" from="ExitBox" to="ExitBox" method="_on_ExitBox_body_entered"]
+[connection signal="screen_exited" from="Knife guy/VisibilityNotifier2D" to="Knife guy" method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="body_entered" from="CutsceneArea" to="Knife guy" method="_on_CutsceneArea_body_entered"]
