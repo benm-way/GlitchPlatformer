@@ -5,7 +5,8 @@ func _ready():
 	pass # Replace with function body.
 
 func play_cutscene():
-	pass
+	
+	get_parent().get_node("Player").paused = false
 
 func _on_CutsceneArea_body_entered(body):
 	if body is KinematicBody2D:
