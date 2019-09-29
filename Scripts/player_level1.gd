@@ -12,7 +12,8 @@ static func move(mover, delta):
 		mover.vel.y = -2000
 	if Input.is_key_pressed(KEY_SHIFT):
 		for i in range(1,20):
-			mover.max_speed = mover.max_speed*2
+			mover.max_speed = 800
+			#mover.max_speed = mover.max_speed*2
 			#yield(0.5)
 	#animation
 	if Input.is_key_pressed(KEY_D):
