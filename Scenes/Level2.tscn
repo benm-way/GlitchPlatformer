@@ -23,3 +23,8 @@ position = Vector2( -128.065, 223.725 )
 
 [node name="Platform3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 883.573, 168.323 )
+
+[node name="Platform4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1737.39, 197.023 )
+rotation = 1.5708
+scale = Vector2( 30, 2.66 )
