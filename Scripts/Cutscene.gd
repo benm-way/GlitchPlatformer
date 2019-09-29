@@ -1,11 +1,14 @@
 extends Sprite
 
 var label
+var label2
 var symbols
+var donetalking = false
 
 func _ready():
 	label = $Label
-	$Label2.text = "Hands over @$%#, great! Just what you wanted, a problem..."
+	label2 = get_parent().get_node("Label2")
+	label2.text = "Hands over @$%#, great! Just what you wanted, a problem..."
 	symbols = ["&","*","%","#","@","<",">","^","?","?","?","=",";"]
 	pass
 
@@ -13,8 +16,10 @@ func _process(delta):
 	var randtext = ""
 	for i in range(4):
 		randtext += symbols[randi() % symbols.size()]
-	$Label2.text = "Hands over " + randtext + ", great! Just what you wanted, a problem..."
-	pass
+	label2.text = "Hands over " + randtext + ", great! Just what you wanted, a problem..."
+	if donetalking:
+		self.position.x -= 200 * delta
+	
 	
 func animate_text(text):
 	label.text = text
@@ -40,12 +45,22 @@ func play_cutscene():
 	yield($Tween, "tween_completed")
 	yield(get_tree().create_timer(1), "timeout")
 	label.text = ""
-	$Label2.visible = true
+	label2.visible = true
 	
-	get_parent().get_node("Player").paused = false
+	donetalking = true
+	$AnimationPlayer.play("Walk")
+	
+
+	
 
 func _on_CutsceneArea_body_entered(body):
 	if body is KinematicBody2D:
 		get_parent().get_node("Player").paused = true
 		get_parent().get_node("CutsceneArea").queue_free()
 		play_cutscene()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	get_parent().get_node("Player").paused = false
+	if donetalking:
+		self.queue_free()
