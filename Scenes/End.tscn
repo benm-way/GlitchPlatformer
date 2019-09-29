@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Resources/TitleFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/MenuFont.tres" type="DynamicFont" id=2]
 
 [node name="End" type="Node2D"]
 
@@ -22,3 +23,59 @@ text = "You
 Win!"
 align = 1
 valign = 1
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = -466.23
+margin_top = -226.639
+margin_right = -172.23
+margin_bottom = -152.639
+custom_fonts/font = ExtResource( 2 )
+text = "Tim Steiner"
+
+[node name="Label7" type="Label" parent="Camera2D"]
+margin_left = -170.519
+margin_top = -302.186
+margin_right = 123.481
+margin_bottom = -228.186
+custom_fonts/font = ExtResource( 2 )
+text = "Made By:"
+
+[node name="Label2" type="Label" parent="Camera2D"]
+margin_left = -457.596
+margin_top = -60.4372
+margin_right = -163.596
+margin_bottom = 13.5628
+custom_fonts/font = ExtResource( 2 )
+text = "Ben Moushey"
+
+[node name="Label3" type="Label" parent="Camera2D"]
+margin_left = -468.388
+margin_top = 157.568
+margin_right = -58.3884
+margin_bottom = 231.568
+custom_fonts/font = ExtResource( 2 )
+text = "Robert Howard"
+
+[node name="Label4" type="Label" parent="Camera2D"]
+margin_left = 159.727
+margin_top = 146.776
+margin_right = 453.727
+margin_bottom = 220.776
+custom_fonts/font = ExtResource( 2 )
+text = "Sean Russell"
+
+[node name="Label5" type="Label" parent="Camera2D"]
+margin_left = 151.093
+margin_top = -47.4864
+margin_right = 445.093
+margin_bottom = 26.5136
+custom_fonts/font = ExtResource( 2 )
+text = "Tanner Nalley"
+
+[node name="Label6" type="Label" parent="Camera2D"]
+margin_left = 90.6557
+margin_top = -222.323
+margin_right = 468.656
+margin_bottom = -148.323
+custom_fonts/font = ExtResource( 2 )
+text = "Autumn Gesler"
